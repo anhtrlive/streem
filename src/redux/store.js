@@ -6,6 +6,7 @@ import { usersReducer } from './users/reducers';
 
 const RootReducer = combineReducers({
   users: usersReducer,
+  user: userReducer,
 });
 
 const Store = createStore(
