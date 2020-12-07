@@ -1,4 +1,4 @@
-import { FETCH_USER_BY_ID, POST_USER } from './actions';
+import { FETCH_USER_BY_ID } from './actions';
 
 export const userReducer = (state = {}, action) => {
   switch (action.type) {

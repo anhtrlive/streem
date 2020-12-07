@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import { usersReducer } from './users/reducers';
+import { userReducer } from './user/reducers';
 
 const RootReducer = combineReducers({
   users: usersReducer,
