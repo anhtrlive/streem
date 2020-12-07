@@ -6,7 +6,7 @@ export const DELETE_POST = 'DELETE_POST';
 
 export const fetchPosts = (userId) => async (dispatch) => {
   const response = await mockapi.get(`/users/${userId}/posts`);
-  console.log(response.data);
+
   return dispatch({
     type: FETCH_POSTS,
     payload: response.data,
