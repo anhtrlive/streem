@@ -38,7 +38,7 @@ export default function UserCard({ user }) {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button primary as={Link} to={`/update/user/${user.id}`}>
+        <Button primary as={Link} to={`/${user.id}/update-user`}>
           Update
         </Button>
         <Button onClick={deleteUserHandler}>Delete</Button>

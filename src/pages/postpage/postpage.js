@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Item, Button, Container } from 'semantic-ui-react';
 
 import { fetchOnePost } from '../../redux/post/actions';
@@ -35,7 +35,9 @@ export default function UserPost() {
           </Item.Meta>
           <Item.Description>{post.content}</Item.Description>
           <Item.Extra>
-            <Button primary>Update</Button>
+            <Button primary as={Link} to={`/${userId}/update-post/${post.id}`}>
+              Update
+            </Button>
             <Button onClick={deletePostHandler}>Delete</Button>
           </Item.Extra>
         </Item.Content>

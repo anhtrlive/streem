@@ -22,10 +22,10 @@ export default function UserPosts({ posts }) {
                 size="small"
                 src={post.image}
                 as={Link}
-                to={`/${userId}/${post.id}`}
+                to={`/${userId}/posts/${post.id}`}
               />
               <Item.Content>
-                <Link to={`/${userId}/${post.id}`}>
+                <Link to={`/${userId}/posts/${post.id}`}>
                   <Item.Meta>
                     <strong>create</strong>
                     <span className="date">{formatDate(post.createdAt)}</span>
@@ -37,7 +37,13 @@ export default function UserPosts({ posts }) {
                   <Item.Description>{post.content}</Item.Description>
                 </Link>
                 <Item.Extra>
-                  <Button primary>Update</Button>
+                  <Button
+                    primary
+                    as={Link}
+                    to={`/${userId}/update-post/${post.id}`}
+                  >
+                    Update
+                  </Button>
                   <Button onClick={deletePostHandler}>Delete</Button>
                 </Item.Extra>
               </Item.Content>
