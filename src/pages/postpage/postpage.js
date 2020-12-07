@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Item, Button } from 'semantic-ui-react';
+import { Item, Button, Container } from 'semantic-ui-react';
 
 import { fetchOnePost } from '../../redux/post/actions';
 import { deletePostById } from '../../redux/posts/actions';
@@ -21,23 +21,25 @@ export default function UserPost() {
   };
 
   return (
-    <Item key={post.id}>
-      <Item.Image size="small" src={post.image} />
-      <Item.Content>
-        <Item.Meta>
-          <strong>create</strong>
-          <span className="date">{formatDate(post.createdAt)}</span>
-        </Item.Meta>
-        <Item.Meta>
-          <strong>last edit</strong>
-          <span className="date">{formatDate(post.editedAt)}</span>
-        </Item.Meta>
-        <Item.Description>{post.content}</Item.Description>
-        <Item.Extra>
-          <Button primary>Update</Button>
-          <Button onClick={deletePostHandler}>Delete</Button>
-        </Item.Extra>
-      </Item.Content>
-    </Item>
+    <Container style={{ margin: 60 }}>
+      <Item key={post.id}>
+        <Item.Image size="small" src={post.image} />
+        <Item.Content>
+          <Item.Meta>
+            <strong>create</strong>
+            <span className="date">{formatDate(post.createdAt)}</span>
+          </Item.Meta>
+          <Item.Meta>
+            <strong>last edit</strong>
+            <span className="date">{formatDate(post.editedAt)}</span>
+          </Item.Meta>
+          <Item.Description>{post.content}</Item.Description>
+          <Item.Extra>
+            <Button primary>Update</Button>
+            <Button onClick={deletePostHandler}>Delete</Button>
+          </Item.Extra>
+        </Item.Content>
+      </Item>
+    </Container>
   );
 }
