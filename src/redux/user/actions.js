@@ -2,8 +2,8 @@ import mockapi from '../../apis/mockapi';
 
 export const FETCH_USER_BY_ID = 'FETCH_USER_BY_ID';
 export const POST_USER = 'POST_USER';
-export const UPDATE_USER_BY_ID = 'FETCH_USER_BY_ID';
-export const DELETE_USER_BY_ID = 'FETCH_USER_BY_ID';
+export const UPDATE_USER_BY_ID = 'UPDATE_USER_BY_ID';
+export const DELETE_USER_BY_ID = 'DELETE_USER_BY_ID';
 
 export const fetchUserById = (userId) => async (dispatch) => {
   const response = await mockapi.get(`/users/${userId}`);
