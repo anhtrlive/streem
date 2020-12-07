@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Grid } from 'semantic-ui-react';
@@ -12,7 +12,6 @@ export default function UserPostsPage() {
   const user = useSelector((state) => state.user);
   const posts = useSelector((state) => state.posts);
   const { userId } = useParams();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
