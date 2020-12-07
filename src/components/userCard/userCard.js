@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Image, Card, Button } from 'semantic-ui-react';
+import { deleteUserById } from '../../redux/user/actions';
 import { formatDate } from '../../utils/utils';
 
 export default function UserCard({ user }) {
+  const dispatch = useDispatch();
+  const deleteUserHandler = () => {
+    dispatch(deleteUserById(user.id));
+  };
+
   return (
     <Card>
       <Image
@@ -34,7 +41,7 @@ export default function UserCard({ user }) {
         <Button primary as={Link} to={`/update/user/${user.id}`}>
           Update
         </Button>
-        <Button>Delete</Button>
+        <Button onClick={deleteUserHandler}>Delete</Button>
       </Card.Content>
     </Card>
   );
