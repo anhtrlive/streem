@@ -8,9 +8,9 @@ export default function Header() {
           Home
         </Link>
         <div className="right item">
-          <a className="ui inverted button" role="button">
+          <Link to={'/new-user'} className="ui inverted button" role="button">
             Post new user
-          </a>
+          </Link>
         </div>
       </div>
     </div>

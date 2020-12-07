@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Form, Button, Container } from 'semantic-ui-react';
+import { posetUser } from '../../redux/user/actions';
 
-import { fetchUserById, updateUserById } from '../../redux/user/actions';
-
-export default function UpdateUserPage() {
-  const user = useSelector((state) => state.user);
-  const { userId } = useParams();
+export default function NewUser() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [name, setName] = useState(``);
@@ -20,31 +17,17 @@ export default function UpdateUserPage() {
     setValue(evt.target.value);
   };
 
-  useEffect(() => {
-    dispatch(fetchUserById(userId));
-  }, []);
-
-  useEffect(() => {
-    setName(user.name);
-    setAvatar(user.avatar);
-    setPhone(user.phone);
-    setCity(user.city);
-    setRole(user.role);
-  }, [user]);
-
   const onSubmitHadnler = (evt) => {
     evt.preventDefault();
     dispatch(
-      updateUserById(
-        {
-          name: name,
-          avatar: avatar,
-          phone: phone,
-          city: city,
-          role: role,
-        },
-        user.id
-      )
+      posetUser({
+        createAt: new Date().toISOString(),
+        name: name,
+        avatar: avatar,
+        phone: phone,
+        city: city,
+        role: role,
+      })
     );
     history.push(`/`);
   };
