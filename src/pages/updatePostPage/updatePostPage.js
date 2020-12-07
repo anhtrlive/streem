@@ -19,7 +19,7 @@ export default function UpdatePostPage() {
   };
 
   useEffect(() => {
-    dispatch(fetchOnePost(postId, postId));
+    dispatch(fetchOnePost(userId, postId));
   }, []);
 
   useEffect(() => {
