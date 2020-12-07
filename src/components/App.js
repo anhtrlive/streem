@@ -3,7 +3,7 @@ import { Container } from 'semantic-ui-react';
 
 import Homepage from '../pages/homepage/homepage';
 import NewUser from '../pages/newUserPage/newUserpage';
-import UserPost from '../pages/postpage/postPage';
+import UserPost from '../pages/post/postPage';
 import UpdatePostPage from '../pages/updatePostPage/updatePostPage';
 import UpdateUserPage from '../pages/updatUserPage/updateUserPage';
 import UserPostsPage from '../pages/userPostspage/userPostsPage';
