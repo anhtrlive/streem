@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Image, Card, Button } from 'semantic-ui-react';
+import { formatDate } from '../../utils/utils';
 
 export default function UserCard({ user }) {
   return (
@@ -14,7 +15,7 @@ export default function UserCard({ user }) {
       <Card.Content as={Link} to={`/${user.id}`}>
         <Card.Header>{user.name}</Card.Header>
         <Card.Meta>
-          <span className="date">{user.createdAt}</span>
+          <span className="date">{formatDate(user.createdAt)}</span>
         </Card.Meta>
         <Card.Description textAlign={'left'}>
           <strong>phone: </strong>

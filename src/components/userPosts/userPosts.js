@@ -1,10 +1,7 @@
 import { Item, Button } from 'semantic-ui-react';
+import { formatDate } from '../../utils/utils';
 
 export default function UserPosts({ posts }) {
-  const toLocalStr = (date) => {
-    const d = new Date(date);
-    return d.toLocaleString();
-  };
   return (
     <Item.Group>
       {posts &&
@@ -15,11 +12,11 @@ export default function UserPosts({ posts }) {
               <Item.Content>
                 <Item.Meta>
                   <strong>create</strong>
-                  <span className="date">{toLocalStr(post.createdAt)}</span>
+                  <span className="date">{formatDate(post.createdAt)}</span>
                 </Item.Meta>
                 <Item.Meta>
                   <strong>last edit</strong>
-                  <span className="date">{toLocalStr(post.editedAt)}</span>
+                  <span className="date">{formatDate(post.editedAt)}</span>
                 </Item.Meta>
                 <Item.Description>{post.content}</Item.Description>
                 <Item.Extra>
