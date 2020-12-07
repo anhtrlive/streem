@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Item, Button } from 'semantic-ui-react';
 
 import { fetchOnePost } from '../../redux/post/actions';
+import { deletePostById } from '../../redux/posts/actions';
 import { formatDate } from '../../utils/utils';
 
 export default function UserPost() {
@@ -14,6 +15,10 @@ export default function UserPost() {
   useEffect(() => {
     dispatch(fetchOnePost(userId, postId));
   }, []);
+
+  const deletePostHandler = () => {
+    dispatch(deletePostById(userId, userId));
+  };
 
   return (
     <Item key={post.id}>
@@ -30,7 +35,7 @@ export default function UserPost() {
         <Item.Description>{post.content}</Item.Description>
         <Item.Extra>
           <Button primary>Update</Button>
-          <Button>Delete</Button>
+          <Button onClick={deletePostHandler}>Delete</Button>
         </Item.Extra>
       </Item.Content>
     </Item>

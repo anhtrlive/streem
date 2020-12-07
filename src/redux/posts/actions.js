@@ -24,7 +24,7 @@ export const updatePost = (postInfo, userId, postId) => async (dispatch) => {
   });
 };
 
-export const deleteUserById = (userId, postId) => async (dispatch) => {
+export const deletePostById = (userId, postId) => async (dispatch) => {
   const response = await mockapi.delete(`/users/${userId}/posts/${postId}`);
 
   return dispatch({

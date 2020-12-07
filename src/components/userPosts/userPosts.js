@@ -1,9 +1,16 @@
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Item, Button } from 'semantic-ui-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { deletePostById } from '../../redux/posts/actions';
 import { formatDate } from '../../utils/utils';
 
 export default function UserPosts({ posts }) {
+  const dispatch = useDispatch();
+
+  const deletePostHandler = () => {
+    dispatch(deletePostById(userId, userId));
+  };
+
   const userId = useSelector((state) => state.user.id);
   return (
     <Item.Group>
@@ -31,7 +38,7 @@ export default function UserPosts({ posts }) {
                 </Link>
                 <Item.Extra>
                   <Button primary>Update</Button>
-                  <Button>Delete</Button>
+                  <Button onClick={deletePostHandler}>Delete</Button>
                 </Item.Extra>
               </Item.Content>
             </Item>
