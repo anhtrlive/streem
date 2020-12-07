@@ -1,12 +1,12 @@
 import mockapi from '../../apis/mockapi';
 
-export const FETCH_POSTS = 'FETCH_USER_BY_ID';
+export const FETCH_POSTS = 'FETCH_POSTS';
 export const UPDATE_POST = 'UPDATE_POST';
 export const DELETE_POST = 'DELETE_POST';
 
-export const fetchPosts = (id) => async (dispatch) => {
-  const response = await mockapi.get(`/users/${id}/posts`);
-
+export const fetchPosts = (userId) => async (dispatch) => {
+  const response = await mockapi.get(`/users/${userId}/posts`);
+  console.log(response.data);
   return dispatch({
     type: FETCH_POSTS,
     payload: response.data,
