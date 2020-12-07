@@ -1,11 +1,17 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { Image, Card, Button } from 'semantic-ui-react';
 
 export default function UserCard({ user }) {
   return (
     <Card>
-      <Image src={user.avatar} wrapped ui={false} />
-      <Card.Content>
+      <Image
+        src={user.avatar}
+        wrapped
+        ui={false}
+        as={Link}
+        to={`/${user.id}`}
+      />
+      <Card.Content as={Link} to={`/${user.id}`}>
         <Card.Header>{user.name}</Card.Header>
         <Card.Meta>
           <span className="date">{user.createdAt}</span>
