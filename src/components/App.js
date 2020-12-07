@@ -3,6 +3,7 @@ import { Container } from 'semantic-ui-react';
 
 import Homepage from '../pages/homepage/homepage';
 import UserPost from '../pages/postpage/postpage';
+import UpdateUserPage from '../pages/updatUserPage/updateUserPage';
 import UserPostsPage from '../pages/userPostspage/userPostsPage';
 
 export default function App() {
@@ -15,6 +16,9 @@ export default function App() {
         </Route>
         <Route exact path="/:userId/:postId">
           <UserPost />
+        </Route>
+        <Route exact path="/update/user/:userId">
+          <UpdateUserPage />
         </Route>
         <Route path="/">
           <Homepage />
